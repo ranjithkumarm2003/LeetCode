@@ -11,7 +11,7 @@ class Solution {
              }
              c++;
              if(li.size()==0){
-                break;
+                return c;
              }
         }
         return c;
