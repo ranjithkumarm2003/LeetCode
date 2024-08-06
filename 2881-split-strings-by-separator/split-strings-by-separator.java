@@ -21,7 +21,7 @@ class Solution {
                 }
                 continue;
             }
-            if(j==a.length()-1 && a.substring(ind,a.length()).length()!=0){
+            if(j==a.length()-1 && a.substring(ind,j+1).length()!=0){
                     s=s+a.substring(ind,a.length());
                     li.add(s);
                     s="";
