@@ -4,11 +4,11 @@
  */
 var expect = function(val) {
    return {
-    toBe:function(v1){
+    toBe:(v1)=>{
         if(v1===val)return true;
         else throw new Error("Not Equal")
     },
-    notToBe:function(v1){
+    notToBe:(v1)=>{
         if(v1===val)throw new Error("Equal")
         else return true
     }
