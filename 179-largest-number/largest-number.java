@@ -1,23 +1,37 @@
+import java.math.BigInteger;
 class Solution {
     public String largestNumber(int[] nums) {
-        int n=nums.length;
-        
-        String strnums[]=new String [n];
+        String s[] = new String[nums.length];
         for(int i=0;i<nums.length;i++){
-            strnums[i]=String.valueOf(nums[i]);  
+            s[i] = String.valueOf(nums[i]);
         }
-        Arrays.sort(strnums,new Comparator<String>(){
-            public int compare(String a,String b){
-                String order1=a+b;
-                String order2=b+a;
-                return order2.compareTo(order1);
+       int n=nums.length;
+        for(int k=0;k<n;k++)
+        {
+            String max=s[0];  
+            for(int i=1;i<n-k;i++)
+            {
+                BigInteger a = new BigInteger(max + s[i]);
+                BigInteger b = new BigInteger(s[i] + max);
+                if(a.compareTo(b) < 0)
+                {
+                   max=s[i];
+                }
+                else
+                {
+                     String temp=s[i];
+                    s[i]=max;
+                    s[i-1]=temp;
+                    
+                }
             }
-        });
-        if(strnums[0].equals("0"))return "0";
-        StringBuilder sb=new StringBuilder();
-        for(String i:strnums){
-            sb.append(i);
         }
-        return sb.toString();
+            
+       String ans="";
+        for(int i=n-1;i>=0;i--){
+            ans+=s[i];
+        }
+        return ans.charAt(0)=='0'?"0" : ans;
+       
     }
 }
