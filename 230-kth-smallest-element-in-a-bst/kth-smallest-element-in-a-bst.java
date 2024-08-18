@@ -17,7 +17,7 @@ class Solution {
     public int kthSmallest(TreeNode root, int k) {
         List<Integer>li=new ArrayList<>();
         solve(root,li);
-        Collections.sort(li);
+        //Collections.sort(li);
         return li.get(k-1);
     }
     public void solve(TreeNode root,List<Integer>li){
