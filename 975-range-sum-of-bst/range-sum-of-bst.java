@@ -14,7 +14,7 @@
  * }
  */
 class Solution {
-    int sum=0;
+int sum=0;
     public int rangeSumBST(TreeNode root, int low, int high) {
         if(root == null){
            return 0;
