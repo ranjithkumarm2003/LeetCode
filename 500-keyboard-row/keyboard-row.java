@@ -21,12 +21,12 @@ class Solution {
                li.add(words[i]);
             }
         }
-        String ans[]=new String[li.size()];
-        int m=0;
-        for(String i:li){
-            ans[m]=i;
-            m++;
-        }
-        return ans;
+        // String ans[]=new String[li.size()];
+        // int m=0;
+        // for(String i:li){
+        //     ans[m]=i;
+        //     m++;
+        // }
+        return li.toArray(new String[0]);
     }
 }
