@@ -1,16 +1,19 @@
 class Solution {
     public boolean isPerfectSquare(int num) {
-        if(num==1||num==0)
-        {
+        int l = 1;
+        int r =num;
+        while(l<=r){
+        long mid=(l+r)/2;
+        long squaredMid=mid*mid;
+        if(squaredMid==num){
             return true;
+    } else if(squaredMid > num) {
+            r =(int)mid-1;
+        } else {
+             l =(int)mid+1;
         }
-        for(int i=2;i<Math.pow(2,16);i++)
-        {
-            if((i*i)==num)
-            {
-                return true;
-            }
-        }
-        return false;
+        } 
+         return false;
+        
     }
 }
