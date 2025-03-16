@@ -6,7 +6,7 @@ class Solution {
         }
         int i=0;
         int j=nums.length-1;
-        while(i<j){
+        while(i<=j){
             if(nums[i]==1 && nums[j]==0){
                 nums[i]=0;
                 nums[j]=1;
