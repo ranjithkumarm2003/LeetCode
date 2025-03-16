@@ -12,8 +12,8 @@ class Solution {
                 nums[j]=1;
                 i++;j--;
             }
-             if(nums[i]==0) i++;
-             if(nums[j]==1) j--; 
+             else if(nums[i]==0) i++;
+            else if(nums[j]==1) j--; 
 
         }
         return nums;
