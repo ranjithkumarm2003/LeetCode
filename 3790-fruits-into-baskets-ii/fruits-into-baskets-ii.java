@@ -7,7 +7,7 @@ class Solution {
                     fruits[i]=0;
                     baskets[j]=0;
                     c++;
-                    break;
+                  //  break;
                 }
             }
         }
