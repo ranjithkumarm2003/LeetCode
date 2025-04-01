@@ -9,7 +9,7 @@ class Solution {
         for (int i = 0; i < result.length; i++) {
             if (k > 0) {
                 // If k is greater than 0, store the sum of next k numbers.
-                for (int j = i + 1; j < i + k + 1; j++) {
+                for (int j = i + 1; j <=i + k ; j++) {
                     result[i] += code[j % code.length];
                 }
             } else {
