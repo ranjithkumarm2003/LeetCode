@@ -1,6 +1,6 @@
 class Solution {
     public String longestNiceSubstring(String s) {
-        StringBuilder sb=new StringBuilder();
+       
         int n=s.length();
         if(n<=1)return "";
         int k=s.length();
@@ -12,9 +12,8 @@ class Solution {
            while(i+k<=n){
               if(solver(s.substring(i,i+k))){
                 if(s.substring(i,i+k).length()>max){
-                    sb.setLength(0);
-                  sb.append(s.substring(i,i+k));
-                 return sb.toString(); 
+                   
+                 return s.substring(i,i+k); 
                  // max=s.substring(i,i+k).length();
                 }
               }
@@ -22,7 +21,7 @@ class Solution {
            }
            k--;
         }
-        return sb.toString();
+        return "";
     }
     public boolean solver(String s){
          for(int i=0;i<s.length();i++){
