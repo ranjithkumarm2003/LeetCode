@@ -14,7 +14,8 @@ class Solution {
                 if(s.substring(i,i+k).length()>max){
                     sb.setLength(0);
                   sb.append(s.substring(i,i+k));
-                  max=s.substring(i,i+k).length();
+                 return sb.toString(); 
+                 // max=s.substring(i,i+k).length();
                 }
               }
               i++;
