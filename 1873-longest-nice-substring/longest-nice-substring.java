@@ -38,18 +38,5 @@ class Solution {
         return true;
 
     } 
-        // for(int i=0;i<sb.length();i++){
-        //     int c=0;
-        //      for(int j=0;j<sb.length();j++){
-        //         if(Math.abs((int)sb.charAt(i)-(int)sb.charAt(j))==32){
-        //             c++;
-        //         }
-        //      }
-        //      if(c==0){
-        //         sb.replace(i,i+1,"*");
-        //      }
-        // }
-
-        // return sb.toString();
-    
+       
 }
