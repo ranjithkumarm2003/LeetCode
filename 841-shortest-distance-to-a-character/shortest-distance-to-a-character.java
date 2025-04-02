@@ -1,32 +1,27 @@
 class Solution {
     public int[] shortestToChar(String s, char c) {
-        int n=s.length();
-        int ans[]=new int[s.length()];
-        int pre[]=new int[s.length()];
-        int suf[]=new int[s.length()];
-        for(int i=0;i<n;i++){
-            for(int j=i;j>=0;j--){
-                if(s.charAt(j)==c){
-                    pre[i]=Math.abs(i-j);
-                    break;
-                }
-            }
-        }
-        for(int i=0;i<n;i++){
-            for(int j=i;j<n;j++){
-                if(s.charAt(j)==c){
-                    suf[i]=Math.abs(i-j);
-                    break;
-                }
-            }
-        }
-        for(int i=0;i<n;i++){
-            if(pre[i]==0 && suf[i]==0) continue;
-            else if(pre[i]==0 && suf[i]!=0) ans[i]=suf[i];
-            else if(pre[i]!=0 && suf[i]==0) ans[i]=pre[i];
-            else ans[i]=Math.min(pre[i],suf[i]);
-        }
-      return ans;
+         int n = s.length();
+        int[] result = new int[n];
+        int prev = Integer.MIN_VALUE / 2;
 
+        // First pass (left to right)
+        for (int i = 0; i < n; i++) {
+            if (s.charAt(i) == c) {
+                prev = i;
+            }
+            result[i] = i - prev;
+        }
+
+        prev = Integer.MAX_VALUE / 2;
+
+        // Second pass (right to left)
+        for (int i = n - 1; i >= 0; i--) {
+            if (s.charAt(i) == c) {
+                prev = i;
+            }
+            result[i] = Math.min(result[i], prev - i);
+        }
+
+        return result;
     }
 }
