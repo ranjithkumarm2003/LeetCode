@@ -9,7 +9,7 @@ class Solution {
                 s+=paragraph.charAt(i);
             }
         }
-        String str[]=s.split("[!?',;. ]+");
+        String str[]=s.split("[\"\"!?',;. ]+");
         HashMap<String,Integer>map=new HashMap<>();
         StringBuilder sb=new StringBuilder();
         int max=-1;
