@@ -7,7 +7,9 @@ class Solution {
 
         for (int i = 0; i <= nums.length - k; i++) {
             int diff = nums[i + k - 1] - nums[i]; 
-            minDiff = Math.min(minDiff, diff);
+            if(diff<minDiff){
+                minDiff=diff;
+            }
         }
 
         return minDiff;
