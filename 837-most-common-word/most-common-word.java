@@ -1,15 +1,15 @@
 class Solution {
     public String mostCommonWord(String paragraph, String[] banned) {
-        String s="";
-        for(int i=0;i<paragraph.length();i++){
-            if(paragraph.charAt(i)>='A' && paragraph.charAt(i)<='Z'){
-               s+=(char)(paragraph.charAt(i)+32);
-            }
-            else{
-                s+=paragraph.charAt(i);
-            }
-        }
-        String str[]=s.split("[\"\"!?',;. ]+");
+        String s=paragraph.toLowerCase();
+        // for(int i=0;i<paragraph.length();i++){
+        //     if(paragraph.charAt(i)>='A' && paragraph.charAt(i)<='Z'){
+        //        s+=(char)(paragraph.charAt(i)+32);
+        //     }
+        //     else{
+        //         s+=paragraph.charAt(i);
+        //     }
+        // }
+        String str[]=s.split("[\"!?',;. ]+");
         HashMap<String,Integer>map=new HashMap<>();
         StringBuilder sb=new StringBuilder();
         int max=-1;
