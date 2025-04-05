@@ -5,7 +5,7 @@ class Solution {
         double ans=(nums[s]+nums[e])/2.0;
         
         while(s<=e){
-            System.out.println(ans);
+           
             ans=Math.min(ans,((nums[s]+nums[e])/2.0));
             s++;
             e--;
