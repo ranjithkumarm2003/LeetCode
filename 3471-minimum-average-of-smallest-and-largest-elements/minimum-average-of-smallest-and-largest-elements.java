@@ -9,14 +9,7 @@ class Solution {
         int max_ind=-1;
         int k=0;
         while(true){
-            // if(nums[i]==0){
-            //     i++;
-            //     continue;
-            // }
-            // if(nums[j]==0){
-            //     j--;
-            //     continue;
-            // }
+           
             if(nums[i]<nums[j]){
                 if(nums[i]==0 && i<j){
                 i++;
@@ -49,9 +42,9 @@ class Solution {
                     max_ind=j;
                 }
             }
-            if(i<=n/2) i++;
+            if(i<=j) i++;
                
-           if(j>=(n/2)-1) j--;
+           if(j>=i) j--;
             
             
             if(i>j){
