@@ -52,7 +52,8 @@ class Solution {
                   j=n-1;
                   nums[min_ind]=0;
                   nums[max_ind]=0;
-                  mAvg=Math.min(mAvg,(double)(min+max)/2);
+                  if( (double)(min+max)/2<mAvg)
+                      mAvg=(double)(min+max)/2;
                   k++;
                   min=51;
                   max=0;
