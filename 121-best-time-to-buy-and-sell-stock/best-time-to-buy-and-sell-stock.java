@@ -7,7 +7,10 @@ class Solution {
            if(buyStock>prices[i]){
             buyStock=prices[i];
            }
-            max=(prices[i]-buyStock>max)?prices[i]-buyStock:max;
+           else if(prices[i]-buyStock>max){
+            max=prices[i]-buyStock;
+           }
+            
         }
         return max;
     }
