@@ -4,7 +4,7 @@ class Solution {
         int max = 0;
         int buyStock=prices[0];
         for(int i=1;i<n;i++){
-           if(buyStock>prices[i]){
+           if(prices[i]<buyStock){
             buyStock=prices[i];
            }
            else if(prices[i]-buyStock>max){
