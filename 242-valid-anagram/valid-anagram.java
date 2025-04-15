@@ -5,13 +5,17 @@ class Solution {
         int freq[]=new int[26];
         for(int i=0;i<s.length();i++)
         {
-            freq[s.charAt(i)-'a']++;
+            int ss=s.charAt(i)-'a';
+            int tt=t.charAt(i)-'a';
+            if(ss!=tt){
+                freq[ss]++;
+                freq[tt]--;
+            }
         }
-        for(int j=0;j<t.length();j++)
-        {
-            if(freq[t.charAt(j)-'a']==0){return false;}
-            freq[t.charAt(j)-'a']--;
+        for(int i:freq){
+            if(i!=0) return false;
         }
+      
         return true;
     }
 }
