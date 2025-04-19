@@ -5,7 +5,7 @@ class Solution {
             if (nums[k] == 0 && nums[i] == 0) {
                 continue;
             }
-            if (nums[i] != 0 && nums[k] == 0) {
+            else if(nums[i] != 0 && nums[k] == 0) {
                 int temp = nums[k];
                 nums[k] = nums[i];
                 nums[i] = temp;
