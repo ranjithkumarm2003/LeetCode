@@ -10,12 +10,12 @@
  */
 class Solution {
     public ListNode removeNodes(ListNode head) {
-        if (head == null || head.next == null) return head;
+        if (head == null || head.next == null)
+            return head;
 
-        // Step 1: Reverse the list
+        
         head = reverse(head);
 
-        // Step 2: Traverse and keep only max-so-far nodes
         ListNode dummy = new ListNode(0);
         dummy.next = head;
         ListNode curr = head;
@@ -30,7 +30,6 @@ class Solution {
             }
         }
 
-        // Step 3: Reverse the list back to original order
         return reverse(dummy.next);
     }
 
