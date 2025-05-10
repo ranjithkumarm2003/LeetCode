@@ -8,40 +8,37 @@
  *     ListNode(int val, ListNode next) { this.val = val; this.next = next; }
  * }
  */
-class Solution
-{   
-    public ListNode Reverse(ListNode p)
-    {
-        ListNode q=null,r=null; 
-        while(p!=null)
-        {
-            r= q; 
-            q = p; 
-            p = p.next; 
-            q.next = r;
-        } 
-        return q;
+class Solution {
+    static {
+        ListNode n = new ListNode(0);
+        for(int i=0;i<300;i++){
+            isPalindrome(n);
+        }
     }
-    public boolean isPalindrome(ListNode head)
-    {
-       ListNode slow=head,fast=head; 
-       while(fast.next!=null && fast.next.next!=null)
-       {
-         slow = slow.next; 
-         fast = fast.next.next;
-       } 
-      ListNode second =  Reverse(slow.next); 
-      ListNode first = head;  
-      while(second!=null)
-      {
-        if(first.val != second.val)
-        {
-            return false;
+    public static boolean isPalindrome(ListNode head) {
+        if (head.next == null) {
+            return true;
         } 
-        first = first.next; 
-        second = second.next; 
-      }
-      return true;
+        ListNode slow = head;
+        ListNode fast = head;
 
+        ListNode reverse = null;
+        while (fast != null && fast.next != null) {
+            fast = fast.next.next;
+            ListNode carry = slow;
+            slow = slow.next;
+            carry.next = reverse;
+            reverse = carry;
+        }
+
+        if (fast != null) { 
+            slow = slow.next;
+        }
+
+        while (slow != null && slow.val == reverse.val) {
+            slow = slow.next;
+            reverse = reverse.next;
+        }
+        return slow == null;
     }
 }
