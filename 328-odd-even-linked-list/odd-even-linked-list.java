@@ -15,22 +15,22 @@ class Solution {
         ListNode e=head.next;
         ListNode odd=o;
         ListNode even=e;
-        while(true){
-            boolean oFlag=false;
-            boolean eFlag=false;
+        while(odd.next!=null && even.next!=null){
+            // boolean oFlag=false;
+            // boolean eFlag=false;
             if(odd.next!=null && odd.next.next!=null){
                 odd.next=odd.next.next;
                 odd=odd.next;
-                oFlag=true;
+               // oFlag=true;
             }
              if(even.next!=null && even.next.next!=null){
                 even.next=even.next.next;
                 even=even.next;
-                eFlag=true;
+               // eFlag=true;
             }
-            if(!oFlag && !eFlag){
-                break;
-            }
+            // if(!oFlag && !eFlag){
+            //     break;
+            // }
         }
         even.next=null;
         odd.next=e;
