@@ -18,7 +18,7 @@ class Solution {
         // Conditional case
         ListNode second = head.next;
         
-        head.next = this.swapPairs(second.next);
+        head.next = swapPairs(second.next);
         second.next = head;
         
         return second;
