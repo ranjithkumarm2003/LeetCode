@@ -10,29 +10,17 @@
  */
 class Solution {
     public ListNode swapPairs(ListNode head) {
-        if(head==null || head.next==null) return head;
-       ListNode dummy=new ListNode(-1);
-       ListNode cur=dummy;
-       ListNode l=head,r=head.next;
-       while(true){
-        cur.next=r;
-        ListNode temp=r.next;
-        r.next=l;
-        cur=cur.next.next;
-        if(temp!=null && temp.next!=null){
-            l=temp;
-            r=temp.next;
+        // Base case
+        if (head == null || head.next == null) {
+            return head;
         }
-        else if(temp!=null && temp.next==null){
-            cur.next=temp;
-            break;
-        }
-        else{
-            cur.next=null;
-            break;
-        }
-
-       }
-       return dummy.next;
+        
+        // Conditional case
+        ListNode second = head.next;
+        
+        head.next = this.swapPairs(second.next);
+        second.next = head;
+        
+        return second;
     }
 }
