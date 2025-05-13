@@ -21,6 +21,6 @@ class Solution {
                 }
             }
         }
-        return st.isEmpty();
+        return st.size()==0;
     }
 }
