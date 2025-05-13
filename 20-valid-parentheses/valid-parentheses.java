@@ -10,12 +10,12 @@ class Solution {
             else if(st.isEmpty()) return false;
             else {
                 char d = st.pop();
-                if (c == ']') {
-                     if (d != '[')return false;
-                } else if (c == '}') {
-                    if (d != '{') return false;
+                if (c == ']' && d != '[') {
+                     return false;
+                } else if (c == '}' && d != '{') {
+                     return false;
                 } else {
-                    if (d != '(')return false;
+                    if ( c==')' && d != '(')return false;
                 }
             }
         }
