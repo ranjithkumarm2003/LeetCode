@@ -7,15 +7,18 @@ class Solution {
             if (c == '[' || c == '{' || c == '(') {
                 st.push(c);
             } 
-            else if(st.isEmpty()) return false;
             else {
                 if (c == ']') {
+                    if(st.isEmpty()) return false;
                     char d = st.pop();
                     if (d != '[')return false;
                 } else if (c == '}') {
+                    //System.out.println(st.toString());
+                    if(st.isEmpty()) return false;
                     char d = st.pop();
                     if (d != '{') return false;
                 } else {
+                    if(st.isEmpty()) return false;
                     char d = st.pop();
                     if (d != '(')return false;
                 }
