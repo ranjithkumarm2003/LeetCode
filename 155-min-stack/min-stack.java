@@ -2,6 +2,7 @@ class MinStack {
     Stack<Integer> st = new Stack<>();
     Stack<Integer> s = new Stack<>();
     TreeSet<Integer> set = new TreeSet<>();
+    HashMap<Integer, Integer> map=new HashMap<>();
 
     public MinStack() {
 
@@ -10,20 +11,25 @@ class MinStack {
     public void push(int val) {
         set.add(val);
         st.push(val);
+        if(!map.containsKey(val)){
+            map.put(val,1);
+        }
+        else{
+            map.put(val,map.get(val)+1);
+        }
     }
 
     public void pop() {
         int ele = st.pop();
-        int c = 0;
-        while (!st.isEmpty()) {
-            if (st.peek() == ele)
-                c++;
-            s.push(st.pop());
+        
+        if(map.get(ele)==1) {
+            set.remove(ele);
+            map.remove(ele);
         }
-        while (!s.isEmpty()) {
-            st.push(s.pop());
+        else{
+            map.put(ele,map.get(ele)-1);
         }
-        if(c==0) set.remove(ele);
+        
     }
 
     public int top() {
