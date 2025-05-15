@@ -1,6 +1,5 @@
 class MinStack {
     Stack<Integer> st = new Stack<>();
-    Stack<Integer> s = new Stack<>();
     TreeSet<Integer> set = new TreeSet<>();
     HashMap<Integer, Integer> map=new HashMap<>();
 
