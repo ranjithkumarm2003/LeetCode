@@ -1,53 +1,28 @@
 class MinStack {
-    Stack<Integer> st = new Stack<>();
-    TreeSet<Integer> set = new TreeSet<>();
-    HashMap<Integer, Integer> map=new HashMap<>();
+    private List<int[]> st;
 
     public MinStack() {
-
+        st = new ArrayList<>();
     }
-
+    
     public void push(int val) {
-        set.add(val);
-        st.push(val);
-        if(!map.containsKey(val)){
-            map.put(val,1);
+        int[] top = st.isEmpty() ? new int[]{val, val} : st.get(st.size() - 1);
+        int min_val = top[1];
+        if (min_val > val) {
+            min_val = val;
         }
-        else{
-            map.put(val,map.get(val)+1);
-        }
+        st.add(new int[]{val, min_val});        
     }
-
+    
     public void pop() {
-        int ele = st.pop();
-        
-        if(map.get(ele)==1) {
-            set.remove(ele);
-            map.remove(ele);
-        }
-        else{
-            map.put(ele,map.get(ele)-1);
-        }
-        
+        st.remove(st.size() - 1);
     }
-
+    
     public int top() {
-        return st.peek();
+        return st.isEmpty() ? -1 : st.get(st.size() - 1)[0];
     }
-
+    
     public int getMin() {
-        int min = set.iterator().next();
-       
-        return min;
-
+        return st.isEmpty() ? -1 : st.get(st.size() - 1)[1];
     }
 }
-
-/**
- * Your MinStack object will be instantiated and called as such:
- * MinStack obj = new MinStack();
- * obj.push(val);
- * obj.pop();
- * int param_3 = obj.top();
- * int param_4 = obj.getMin();
- */
