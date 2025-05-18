@@ -14,23 +14,22 @@
  * }
  */
 class Solution {
-    Set<Integer> set=new TreeSet<>();
+    int c=1;int ans=-1;
     public int kthSmallest(TreeNode root, int k) {
-        solver(root);
-        int j=1;
-        for(int i:set){
-          if(j++==k){
-            return i;
-          }
-        }
-        return 0;
+        solver(root,k);
+        return ans;
+   
     }
-    public void solver(TreeNode root){
+    public void solver(TreeNode root,int k){
         if(root==null){
             return;
         }
-        solver(root.left);
-        set.add(root.val);
-        solver(root.right);
+        solver(root.left,k);
+        
+        if(c++==k){
+            ans=root.val;
+            return;
+        }
+        solver(root.right,k);
     }
 }
