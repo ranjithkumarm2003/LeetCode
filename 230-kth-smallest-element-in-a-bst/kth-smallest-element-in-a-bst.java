@@ -14,20 +14,23 @@
  * }
  */
 class Solution {
+    Set<Integer> set=new TreeSet<>();
     public int kthSmallest(TreeNode root, int k) {
-        List<Integer>li=new ArrayList<>();
-        solve(root,li);
-        //Collections.sort(li);
-        return li.get(k-1);
+        solver(root);
+        int j=1;
+        for(int i:set){
+          if(j++==k){
+            return i;
+          }
+        }
+        return 0;
     }
-    public void solve(TreeNode root,List<Integer>li){
+    public void solver(TreeNode root){
         if(root==null){
             return;
         }
-        else{
-            solve(root.left,li);
-            li.add(root.val);
-            solve(root.right,li);
-        }
+        solver(root.left);
+        set.add(root.val);
+        solver(root.right);
     }
 }
