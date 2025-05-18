@@ -16,20 +16,22 @@
 class Solution {
     int c=1;int ans=-1;
     public int kthSmallest(TreeNode root, int k) {
-        solver(root,k);
-        return ans;
-   
-    }
-    public void solver(TreeNode root,int k){
-        if(root==null){
-            return;
-        }
-        solver(root.left,k);
         
+    if(root==null){
+            return ans;
+        }
+       ans= kthSmallest(root.left,k);
         if(c++==k){
             ans=root.val;
-            return;
+            return ans;
         }
-        solver(root.right,k);
+       ans= kthSmallest(root.right,k);
+      return ans;
     }
+    // public void solver(TreeNode root,int k){
+       
+        
+        
+        
+    // }
 }
