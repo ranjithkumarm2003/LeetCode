@@ -28,10 +28,5 @@ class Solution {
        ans= kthSmallest(root.right,k);
       return ans;
     }
-    // public void solver(TreeNode root,int k){
-       
-        
-        
-        
-    // }
+     
 }
