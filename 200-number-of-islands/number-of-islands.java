@@ -1,30 +1,27 @@
 class Solution {
+    int c=0;
     public int numIslands(char[][] grid) {
-        int n = grid.length;
-        int m = grid[0].length;
-        int islands = 0;
-        for(int i=0;i<n;i++){
-            for(int j=0;j<m;j++){
-                if(grid[i][j] == '1'){
-                islands++;
-                expandIsland(grid, i, j);
+        int m=grid.length;
+        int n=grid[0].length;
+        for(int i=0;i<m;i++){
+            for(int j=0;j<n;j++){
+                if(grid[i][j]=='1'){
+                    solve(i,j,m,n,grid);
+                    c++;
                 }
             }
         }
-
-        return islands;
+        return c;
     }
-
-    public void expandIsland(char[][]grid, int i, int j){
-        if(i<0 || i>=grid.length || j<0 || j>=grid[0].length || grid[i][j] == '-'){
-            return;
+    public void solve(int i,int j,int m, int n, char[][]arr){
+        if(  i<0 || j<0 || i==m || j==n ||arr[i][j]=='0'){
+             return ;  
         }
-        if(grid[i][j] == '1'){
-            grid[i][j] = '-';
-            expandIsland(grid, i+1, j);
-            expandIsland(grid, i, j+1);
-            expandIsland(grid, i-1, j);
-            expandIsland(grid, i, j-1);
-        }
+        arr[i][j]='0';
+        solve(i-1,j,m,n,arr);
+        solve(i+1,j,m,n,arr);
+        solve(i,j-1,m,n,arr);
+        solve(i,j+1,m,n,arr);
+        
     }
 }
