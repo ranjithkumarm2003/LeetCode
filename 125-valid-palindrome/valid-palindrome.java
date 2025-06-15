@@ -1,22 +1,32 @@
 class Solution {
     public boolean isPalindrome(String s) {
-        int i=0;
-        int j=s.length()-1;
-        while(i<j){
-            if(!Character.isLetterOrDigit(s.charAt(i))){
-                i++;
+        int left = 0, right = s.length() - 1;
+
+        while (left < right) {
+            char a = s.charAt(left);
+            char b = s.charAt(right);
+
+            // Convert uppercase to lowercase
+            if (a >= 'A' && a <= 'Z') a = (char)(a + 32);
+            if (b >= 'A' && b <= 'Z') b = (char)(b + 32);
+
+            // Skip non-alphanumeric
+            if (!((a >= 'a' && a <= 'z') || (a >= '0' && a <= '9'))) {
+                left++;
                 continue;
             }
-            if(!Character.isLetterOrDigit(s.charAt(j))){
-                j--;
+            if (!((b >= 'a' && b <= 'z') || (b >= '0' && b <= '9'))) {
+                right--;
                 continue;
             }
-            if(Character.toLowerCase(s.charAt(i))!=Character.toLowerCase(s.charAt(j))){
-                return false;
-            }
-            i++;
-            j--;
+
+            // Compare
+            if (a != b) return false;
+
+            left++;
+            right--;
         }
+
         return true;
     }
 }
