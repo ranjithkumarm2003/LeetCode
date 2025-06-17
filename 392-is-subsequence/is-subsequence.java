@@ -7,12 +7,11 @@ class Solution {
             if(k>=tn ){
                return false;
             }
-           String temps=t.substring(k,tn);
-           if(temps.indexOf(s.charAt(i))==-1){
+           if(t.substring(k,tn).indexOf(s.charAt(i))==-1){
             return false;
            }
            else{
-            k=k+temps.indexOf(s.charAt(i))+1;
+            k=k+t.substring(k,tn).indexOf(s.charAt(i))+1;
            }
         }
         return true;
