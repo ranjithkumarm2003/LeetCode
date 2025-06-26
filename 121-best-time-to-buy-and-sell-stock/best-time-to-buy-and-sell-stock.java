@@ -6,8 +6,8 @@ class Solution {
             if(bs>prices[i]){
                 bs=prices[i];
             }
-            else{
-                max=Math.max(max,prices[i]-bs);
+            else if(prices[i]-bs>max){
+                max=prices[i]-bs;
             }
         }
       return max;
