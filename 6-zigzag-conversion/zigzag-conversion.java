@@ -2,7 +2,10 @@ class Solution {
     public String convert(String s, int numRows) {
         if(numRows==1) return s;
         String ans[]=new String[numRows];
-        Arrays.fill(ans,"");
+        //Arrays.fill(ans,"");
+        for(int i=0;i<ans.length;i++){
+            ans[i]="";
+        }
         int k=0;
         boolean down=true;
         boolean up=false;
