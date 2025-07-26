@@ -1,32 +1,37 @@
 class Solution {
     public String convert(String s, int numRows) {
-       if (numRows == 1 || numRows >= s.length()) {
-            return s;
+        if(numRows==1) return s;
+        String ans[]=new String[numRows];
+        //Arrays.fill(ans,"");
+        for(int i=0;i<ans.length;i++){
+            ans[i]="";
         }
-
-        int idx = 0, d = 1;
-        List<Character>[] rows = new ArrayList[numRows];
-        for (int i = 0; i < numRows; i++) {
-            rows[i] = new ArrayList<>();
-        }
-
-        for (char c : s.toCharArray()) {
-            rows[idx].add(c);
-            if (idx == 0) {
-                d = 1;
-            } else if (idx == numRows - 1) {
-                d = -1;
+        int k=0;
+        boolean down=true;
+        boolean up=false;
+        for(int i=0;i<s.length();i++){
+            if(down){
+                ans[k++]+=s.charAt(i);
             }
-            idx += d;
-        }
-
-        StringBuilder result = new StringBuilder();
-        for (List<Character> row : rows) {
-            for (char c : row) {
-                result.append(c);
+            else if(up){
+                ans[k--]+=s.charAt(i);
+            }
+            if(k==numRows){
+                k=numRows-2;
+                up=true;
+                down=false;
+            }
+            else if(k==-1){
+                k+=2;
+                up=false;
+                down=true;
             }
         }
-
-        return result.toString();        
+        String res="";
+        for(int i=0;i<numRows;i++){
+            if(ans[i]!=null)
+              res+=ans[i];
+        }
+        return res;
     }
 }
