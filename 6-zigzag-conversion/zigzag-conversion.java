@@ -1,12 +1,13 @@
 class Solution {
     public String convert(String s, int numRows) {
-        if(numRows==1) return s;
+        if(numRows==1 || numRows>=s.length()) return s;
         String ans[]=new String[numRows];
         //Arrays.fill(ans,"");
         for(int i=0;i<ans.length;i++){
             ans[i]="";
         }
         int k=0;int l=1;
+
         for(int i=0;i<s.length();i++){
             ans[k]+=s.charAt(i);
             if(k==0){
