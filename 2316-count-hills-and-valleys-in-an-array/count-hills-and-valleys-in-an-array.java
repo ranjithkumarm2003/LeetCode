@@ -11,8 +11,10 @@ class Solution {
             int k=i+1;
             while(k<=nums.length-1 && nums[i]==nums[k]) k++;
 
-            if((j>=0 && k<=nums.length-1) && ((nums[i]>nums[j] && nums[i]>nums[k])|| (nums[i]<nums[j] && nums[i]<nums[k]))){
-                 c++;
+            if(j>=0 && k<=nums.length-1){
+                
+                 if(nums[i]>nums[j] && nums[i]>nums[k]) c++;
+                 else if(nums[i]<nums[j] && nums[i]<nums[k]) c++;
             }
         }
         return c;
