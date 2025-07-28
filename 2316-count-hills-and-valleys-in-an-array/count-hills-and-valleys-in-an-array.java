@@ -6,12 +6,11 @@ class Solution {
                 continue;
             }
             int j=i-1;
-            boolean left=true;
-            boolean right=true;
+            
             while(nums[i]==nums[j]){
                 j--;
                 if(j<0){
-                    left=false;
+                  
                     break;
                 }
             }
@@ -19,11 +18,11 @@ class Solution {
             while(nums[i]==nums[k]){
                 k++;
                 if(k>nums.length-1){
-                    right=false;
+                   
                     break;
                 }
             }
-            if((left && right) && ((nums[i]>nums[j] && nums[i]>nums[k])|| (nums[i]<nums[j] && nums[i]<nums[k]))){
+            if((j>=0 && k<=nums.length-1) && ((nums[i]>nums[j] && nums[i]>nums[k])|| (nums[i]<nums[j] && nums[i]<nums[k]))){
                  c++;
             }
         }
