@@ -17,6 +17,6 @@ class Solution {
             }
             k++;
         }
-        return pattern.length()==str.length;
+        return true;
     }
 }
