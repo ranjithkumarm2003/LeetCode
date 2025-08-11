@@ -1,19 +1,21 @@
 class Solution {
     public boolean isHappy(int n) {
-        int sum=0;
-        if(n==1){
-            return true;
-        }
-        while(n!=1 && n!=4){
-             sum=0;
-            while(n>0){
+        int num=n;
+        while(true){
+            int sum=0;
+            while(n!=0){
                 int rem=n%10;
-                sum+=rem*rem;
+                sum+=(rem*rem);
                 n/=10;
-            }n=sum;
-            
+            }
+            n=sum;
+            if(n==1){
+                break;
+            }
+            else if(n==4){
+                return false;
+            }
         }
-        if(sum==1) return true;
-        else return false;
+        return true;
     }
 }
