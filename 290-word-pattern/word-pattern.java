@@ -1,11 +1,11 @@
 class Solution {
     public boolean wordPattern(String pattern, String s) {
         Map<Character,String> map=new HashMap<>();
-        //StringTokenizer st=new StringTokenizer<>(s, " ");
         String str[]=s.split(" ");
         int k=0;
         if(pattern.length()!=str.length) return false;
-        for(char c: pattern.toCharArray()){
+        for(int i=0;i<pattern.length();i++){
+            char c=pattern.charAt(i);
             if(!map.containsKey(c)){
                 if(!map.containsValue(str[k]))
                 map.put(c,str[k]);
