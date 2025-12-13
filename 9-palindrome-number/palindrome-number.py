@@ -8,6 +8,5 @@ class Solution:
             rem=n%10
             res=res*10+rem
             n//=10
-        print(res)
         return res==x
         
