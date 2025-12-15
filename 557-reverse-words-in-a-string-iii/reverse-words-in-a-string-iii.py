@@ -4,6 +4,6 @@ class Solution:
         ans=" "
         for i in li:
             ans=ans+ i[::-1]+" "
-        print(li)
+        #print(li)
         return ans.strip()
         
